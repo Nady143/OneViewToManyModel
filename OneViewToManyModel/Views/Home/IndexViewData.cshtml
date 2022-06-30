@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h2>@ViewBag.Message</h2>
+    <p><b>Student</b></p>
+    @{
+        IEnumerable<Teacher> teachers = ViewData["Teacher"] as IEnumerable<Teacher>;
+        IEnumerable<Student> students = ViewData["Student"] as IEnumerable<Student>;
+
+    }
+    <table>
+        <tr>
+            <th>StudentId</th>
+            <th>Code</th>
+            <th>Name</th>
+        </tr>
+
+        @foreach (Student student in students)
+        {
+            <tr>
+                <td>@student.StudentId</td>
+                <td>@student.Code</td>
+                <td>@student.Name</td>
+
+            </tr>
+        }
+    </table>
+    <p><b>Teacher</b></p>
+    <table>
+        <tr>
+            <th>StudentId</th>
+            <th>Code</th>
+            <th>Name</th>
+        </tr>
+
+        @foreach (Teacher teacher in teachers)
+        {
+            <tr>
+                <td>@teacher.TeacherId</td>
+                <td>@teacher.Code</td>
+                <td>@teacher.Name</td>
+            </tr>
+        }
+    </table>
+</div>

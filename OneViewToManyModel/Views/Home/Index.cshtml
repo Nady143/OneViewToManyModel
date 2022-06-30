@@ -1,0 +1,44 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h2>@ViewBag.Message</h2>
+    <p><b>Student</b></p>
+    <table>
+        <tr>
+            <th>StudentId</th>
+            <th>Code</th>
+            <th>Name</th>
+        </tr>
+
+        @foreach (Student student in Model.Students)
+        {
+            <tr>
+                <td>@student.StudentId</td>
+                <td>@student.Code</td>
+                <td>@student.Name</td>
+
+            </tr>
+        }
+    </table>
+    <p><b>Teacher</b></p>
+    <table>
+        <tr>
+            <th>StudentId</th>
+            <th>Code</th>
+            <th>Name</th>
+        </tr>
+
+        @foreach (Teacher teacher in Model.Teachers)
+        {
+            <tr>
+                <td>@teacher.TeacherId</td>
+                <td>@teacher.Code</td>
+                <td>@teacher.Name</td>
+            </tr>
+        }
+    </table>
+</div>
